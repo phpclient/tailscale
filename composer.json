@@ -1,0 +1,18 @@
+{
+    "name": "phpclient/tailscale",
+    "description": "PHP Client for Tailscale",
+    "type": "library",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "11.2.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PhpClient\\Tailscale\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
