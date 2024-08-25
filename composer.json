@@ -2,17 +2,32 @@
     "name": "phpclient/tailscale",
     "description": "PHP Client for Tailscale",
     "type": "library",
+    "license": "MIT",
     "require": {
-        "php": "^8.3"
+        "php": "^8.3",
+        "phpclient/support": "dev-master",
+        "saloonphp/saloon": "^3.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "11.2.x-dev"
+        "symfony/var-dumper": "^7.1",
+        "pestphp/pest": "^2.34",
+        "vlucas/phpdotenv": "^5.6"
     },
-    "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../support"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "PhpClient\\Tailscale\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
