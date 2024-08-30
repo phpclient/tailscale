@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpClient\Tailscale;
 
-use PhpClient\Tailscale\Resources\AclResource;
 use Saloon\Contracts\Authenticator;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
@@ -12,8 +11,10 @@ use Saloon\Http\Connector;
 /**
  * @see https://tailscale.com/api
  */
-final class TailscaleClient extends Connector
+final class Tailscale extends Connector
 {
+    public Api $api;
+
     /**
      * @param string $token API access token
      */
@@ -21,6 +22,9 @@ final class TailscaleClient extends Connector
         private readonly string $token,
     )
     {
+        $this->api = new Api(
+            connector: $this,
+        );
     }
 
     /**
@@ -45,12 +49,5 @@ final class TailscaleClient extends Connector
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
         ];
-    }
-
-    public function aclResource(): AclResource
-    {
-        return new AclResource(
-            connector: $this,
-        );
     }
 }
