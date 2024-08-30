@@ -7,5 +7,6 @@ namespace PhpClient\Tailscale\Enums;
 enum AclPreviewTypeParameter: string
 {
     case USER = 'user';
+
     case IPPORT = 'ipport';
 }

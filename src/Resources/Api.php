@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace PhpClient\Tailscale;
+namespace PhpClient\Tailscale\Resources;
 
-use PhpClient\Tailscale\Resources\AclResource;
 use Saloon\Http\BaseResource;
 
 final class Api extends BaseResource

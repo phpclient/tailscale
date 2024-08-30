@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpClient\Tailscale;
 
+use PhpClient\Tailscale\Resources\Api;
 use Saloon\Contracts\Authenticator;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
@@ -22,9 +23,7 @@ final class Tailscale extends Connector
         private readonly string $token,
     )
     {
-        $this->api = new Api(
-            connector: $this,
-        );
+        $this->api = new Api(connector: $this);
     }
 
     /**
