@@ -4,22 +4,39 @@ declare(strict_types=1);
 
 namespace PhpClient\Tailscale;
 
+use PhpClient\Tailscale\Resources\AclResource;
+use Saloon\Contracts\Authenticator;
+use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 
+/**
+ * @see https://tailscale.com/api
+ */
 final class TailscaleClient extends Connector
 {
-    public readonly CommonActions $actions;
-
+    /**
+     * @param string $token API access token
+     */
     public function __construct(
         private readonly string $token,
-        private readonly string $baseUrl = 'https://api.tailscale.com/api/v2',
-    )  {
-        $this->actions = new CommonActions(client: $this);
+    )
+    {
     }
 
+    /**
+     * @see https://tailscale.com/api#description/base-url  Documentation
+     */
     public function resolveBaseUrl(): string
     {
-        return $this->baseUrl;
+        return 'https://api.tailscale.com/api/v2';
+    }
+
+    /**
+     * @see https://tailscale.com/api#description/authentication  Documetnation
+     */
+    protected function defaultAuth(): ?Authenticator
+    {
+        return new TokenAuthenticator(token: $this->token);
     }
 
     protected function defaultHeaders(): array
@@ -27,7 +44,13 @@ final class TailscaleClient extends Connector
         return [
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-            'Authorization' => "Bearer $this->token",
         ];
+    }
+
+    public function aclResource(): AclResource
+    {
+        return new AclResource(
+            connector: $this,
+        );
     }
 }
