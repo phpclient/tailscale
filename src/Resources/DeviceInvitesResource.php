@@ -47,9 +47,9 @@ final class DeviceInvitesResource extends BaseResource
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @param array{
-     * multiUse: bool,
-     * allowExitNode: bool,
-     * email: string,
+     *     multiUse: bool,
+     *     allowExitNode: bool,
+     *     email: string,
      * } $data Data for json body
      *
      * @throws FatalRequestException|RequestException
