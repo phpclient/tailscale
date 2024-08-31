@@ -6,10 +6,10 @@ namespace PhpClient\Tailscale\Resources;
 
 use PhpClient\Tailscale\Enums\AcceptHeader;
 use PhpClient\Tailscale\Enums\AclPreviewTypeParameter;
-use PhpClient\Tailscale\Requests\Acl\TailnetAclGetRequest;
-use PhpClient\Tailscale\Requests\Acl\TailnetAclPostRequest;
-use PhpClient\Tailscale\Requests\Acl\TailnetAclPreviewPostRequest;
-use PhpClient\Tailscale\Requests\Acl\TailnetAclValidatePostRequest;
+use PhpClient\Tailscale\Requests\PolicyFile\GetPolicyFileRequest;
+use PhpClient\Tailscale\Requests\PolicyFile\PreviewRuleMatchesRequest;
+use PhpClient\Tailscale\Requests\PolicyFile\SetPolicyFileRequest;
+use PhpClient\Tailscale\Requests\PolicyFile\ValidateAndTestPolicyFileRequest;
 use Saloon\Exceptions\Request\FatalRequestException;
 use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\BaseResource;
@@ -19,7 +19,7 @@ use Saloon\Http\Response;
  * @see https://tailscale.com/api#tag/policyfile  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class AclResource extends BaseResource
+final class PolicyFileResource extends BaseResource
 {
     /**
      * Get policy file.
@@ -43,13 +43,13 @@ final class AclResource extends BaseResource
      * @see https://tailscale.com/api#tag/policyfile/GET/tailnet/%7Btailnet%7D/acl  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function get(
+    public function getPolicyFile(
         string $tailnet,
         ?bool $details = null,
         AcceptHeader $acceptHeader = AcceptHeader::JSON,
     ): Response {
         return $this->connector->send(
-            request: new TailnetAclGetRequest(
+            request: new GetPolicyFileRequest(
                 tailnet: $tailnet,
                 details: $details,
                 acceptHeader: $acceptHeader,
@@ -88,14 +88,14 @@ final class AclResource extends BaseResource
      * @see https://tailscale.com/api#tag/policyfile/POST/tailnet/%7Btailnet%7D/acl  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function post(
+    public function setPolicyFile(
         string $tailnet,
         array $data,
         ?string $ifMatchEtag = null,
         AcceptHeader $acceptHeader = AcceptHeader::JSON,
     ): Response {
         return $this->connector->send(
-            request: new TailnetAclPostRequest(
+            request: new SetPolicyFileRequest(
                 tailnet: $tailnet,
                 data: $data,
                 ifMatchEtag: $ifMatchEtag,
@@ -130,14 +130,14 @@ final class AclResource extends BaseResource
      * @see https://tailscale.com/api#tag/policyfile/POST/tailnet/%7Btailnet%7D/acl/preview  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function previewPost(
+    public function previewRuleMatches(
         string $tailnet,
         AclPreviewTypeParameter $type,
         string $previewFor,
         array $data,
     ): Response {
         return $this->connector->send(
-            request: new TailnetAclPreviewPostRequest(
+            request: new PreviewRuleMatchesRequest(
                 tailnet: $tailnet,
                 type: $type,
                 previewFor: $previewFor,
@@ -166,10 +166,10 @@ final class AclResource extends BaseResource
      * @see https://tailscale.com/api#tag/policyfile/POST/tailnet/%7Btailnet%7D/acl/validate  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function validatePost(string $tailnet, array $data): Response
+    public function validateAndTestPolicyFile(string $tailnet, array $data): Response
     {
         return $this->connector->send(
-            request: new TailnetAclValidatePostRequest(
+            request: new ValidateAndTestPolicyFileRequest(
                 tailnet: $tailnet,
                 data: $data,
             ),

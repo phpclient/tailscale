@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpClient\Tailscale\Resources;
 
 use PhpClient\Tailscale\Enums\ContactType;
-use PhpClient\Tailscale\Requests\Contacts\TailnetContactsGet;
-use PhpClient\Tailscale\Requests\Contacts\TailnetContactsPatch;
-use PhpClient\Tailscale\Requests\Contacts\TailnetContactsPost;
+use PhpClient\Tailscale\Requests\Contacts\GetContactsRequest;
+use PhpClient\Tailscale\Requests\Contacts\ResendVerificationEmailRequest;
+use PhpClient\Tailscale\Requests\Contacts\UpdateContactRequest;
 use Saloon\Exceptions\Request\FatalRequestException;
 use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\BaseResource;
@@ -16,20 +16,20 @@ use Saloon\Http\Response;
 /**
  * @see https://tailscale.com/api#tag/contacts  Documentation
  */
-final class ContactsResource extends BaseResource
+final class ContactPreferencesResource extends BaseResource
 {
     /**
      * Retrieve the tailnet's current contacts.
      *
      * @throws FatalRequestException|RequestException
      *
-     * @see https://tailscale.com/api#tag/policyfile/GET/tailnet/%7Btailnet%7D/contacts  Documentation
+     * @see https://tailscale.com/api#tag/contacts/GET/tailnet/%7Btailnet%7D/contacts  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function get(string $tailnet): Response
+    public function getContacts(string $tailnet): Response
     {
         return $this->connector->send(
-            request: new TailnetContactsGet(
+            request: new GetContactsRequest(
                 tailnet: $tailnet,
             ),
         );
@@ -57,10 +57,10 @@ final class ContactsResource extends BaseResource
      * @see https://tailscale.com/api#tag/contacts/PATCH/tailnet/%7Btailnet%7D/contacts/%7BcontactType%7D  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function patch(string $tailnet, ContactType $contactType, array $data): Response
+    public function updateContact(string $tailnet, ContactType $contactType, array $data): Response
     {
         return $this->connector->send(
-            request: new TailnetContactsPatch(
+            request: new UpdateContactRequest(
                 tailnet: $tailnet,
                 contactType: $contactType,
                 data: $data,
@@ -85,10 +85,10 @@ final class ContactsResource extends BaseResource
      * @see https://tailscale.com/api#tag/contacts/POST/tailnet/%7Btailnet%7D/contacts/%7BcontactType%7D/resend-verification-email  Documentation
      * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
      */
-    public function post(string $tailnet, ContactType $contactType): Response
+    public function resendVerificationEmail(string $tailnet, ContactType $contactType): Response
     {
         return $this->connector->send(
-            request: new TailnetContactsPost(
+            request: new ResendVerificationEmailRequest(
                 tailnet: $tailnet,
                 contactType: $contactType,
             ),

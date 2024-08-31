@@ -14,7 +14,7 @@ use Saloon\Http\Request;
  * @see https://tailscale.com/api#tag/contacts/POST/tailnet/%7Btailnet%7D/contacts/%7BcontactType%7D/resend-verification-email  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetContactsPost extends Request
+final class ResendVerificationEmailRequest extends Request
 {
     protected Method $method = Method::POST;
 

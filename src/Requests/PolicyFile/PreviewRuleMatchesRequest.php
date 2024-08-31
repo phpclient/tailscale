@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpClient\Tailscale\Requests\Acl;
+namespace PhpClient\Tailscale\Requests\PolicyFile;
 
 use PhpClient\Tailscale\Enums\AclPreviewTypeParameter;
 use Saloon\Contracts\Body\HasBody;
@@ -17,7 +17,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * @see https://tailscale.com/api#tag/policyfile/POST/tailnet/%7Btailnet%7D/acl/preview  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetAclPreviewPostRequest extends Request implements HasBody
+final class PreviewRuleMatchesRequest extends Request implements HasBody
 {
     use HasJsonBody;
 

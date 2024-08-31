@@ -8,9 +8,9 @@ use Saloon\Http\BaseResource;
 
 final class Api extends BaseResource
 {
-    public function acl(): AclResource
+    public function policyFile(): PolicyFileResource
     {
-        return new AclResource(
+        return new PolicyFileResource(
             connector: $this->connector,
         );
     }

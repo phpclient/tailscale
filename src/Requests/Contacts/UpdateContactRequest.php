@@ -16,7 +16,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * @see https://tailscale.com/api#tag/contacts/PATCH/tailnet/%7Btailnet%7D/contacts/%7BcontactType%7D  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetContactsPatch extends Request implements HasBody
+final class UpdateContactRequest extends Request implements HasBody
 {
     use HasJsonBody;
 

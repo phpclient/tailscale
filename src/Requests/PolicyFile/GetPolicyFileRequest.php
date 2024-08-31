@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpClient\Tailscale\Requests\Acl;
+namespace PhpClient\Tailscale\Requests\PolicyFile;
 
 use PhpClient\Tailscale\Enums\AcceptHeader;
 use Saloon\Enums\Method;
@@ -19,7 +19,7 @@ use function array_filter;
  * @see https://tailscale.com/api#tag/policyfile/GET/tailnet/%7Btailnet%7D/acl  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetAclGetRequest extends Request
+final class GetPolicyFileRequest extends Request
 {
     protected Method $method = Method::GET;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpClient\Tailscale\Requests\Acl;
+namespace PhpClient\Tailscale\Requests\PolicyFile;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -26,7 +26,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * @see https://tailscale.com/api#tag/policyfile/POST/tailnet/%7Btailnet%7D/acl/validate  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetAclValidatePostRequest extends Request implements HasBody
+final class ValidateAndTestPolicyFileRequest extends Request implements HasBody
 {
     use HasJsonBody;
 

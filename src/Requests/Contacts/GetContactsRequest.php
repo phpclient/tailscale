@@ -10,10 +10,10 @@ use Saloon\Http\Request;
 /**
  * Retrieve the tailnet's current contacts.
  *
- * @see https://tailscale.com/api#tag/policyfile/GET/tailnet/%7Btailnet%7D/contacts  Documentation
+ * @see https://tailscale.com/api#tag/contacts/GET/tailnet/%7Btailnet%7D/contacts  Documentation
  * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
-final class TailnetContactsGet extends Request
+final class GetContactsRequest extends Request
 {
     protected Method $method = Method::GET;
 
