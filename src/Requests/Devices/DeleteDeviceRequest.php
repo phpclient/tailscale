@@ -14,7 +14,7 @@ use Saloon\Http\Request;
  * Deleting devices shared with the tailnet is not supported.
  *
  * @see https://tailscale.com/api#tag/devices/DELETE/device/%7BdeviceId%7D  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class DeleteDeviceRequest extends Request
 {

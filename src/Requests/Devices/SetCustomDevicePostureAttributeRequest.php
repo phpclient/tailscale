@@ -19,7 +19,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * Custom device posture attributes are available for the Personal and Enterprise plans.
  *
  * @see https://tailscale.com/api#tag/devices/POST/device/%7BdeviceId%7D/attributes/%7BattributeKey%7D  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class SetCustomDevicePostureAttributeRequest extends Request implements HasBody
 {

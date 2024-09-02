@@ -15,7 +15,7 @@ use Saloon\Http\Request;
  * by prefixing the attribute key with `custom:`.
  *
  * @see https://tailscale.com/api#tag/devices/DELETE/device/%7BdeviceId%7D/attributes/%7BattributeKey%7D  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class DeleteCustomDevicePostureAttributeRequest extends Request
 {

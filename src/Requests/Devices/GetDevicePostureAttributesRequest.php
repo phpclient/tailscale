@@ -14,7 +14,7 @@ use Saloon\Http\Request;
  * This returns a JSON object of all the key-value pairs of posture attributes for the device.
  *
  * @see https://tailscale.com/api#tag/devices/GET/device/%7BdeviceId%7D/attributes  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class GetDevicePostureAttributesRequest extends Request
 {

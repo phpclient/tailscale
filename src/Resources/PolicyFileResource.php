@@ -17,7 +17,6 @@ use Saloon\Http\Response;
 
 /**
  * @see https://tailscale.com/api#tag/policyfile  Documentation
- * @version Relevant for 2024-08-30, API v2, OAS 3.1.0
  */
 final class PolicyFileResource extends BaseResource
 {

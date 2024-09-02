@@ -16,7 +16,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * is required, according to the authorized field in the payload.
  *
  * @see https://tailscale.com/api#tag/devices/POST/device/%7BdeviceId%7D/authorized  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class AuthorizeDeviceRequest extends Request implements HasBody
 {

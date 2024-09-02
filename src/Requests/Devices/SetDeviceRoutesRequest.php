@@ -16,7 +16,7 @@ use Saloon\Traits\Body\HasJsonBody;
  * Advertised routes cannot be set through the API, since they must be set directly on the device.
  *
  * @see https://tailscale.com/api#tag/devices/POST/device/%7BdeviceId%7D/routes  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class SetDeviceRoutesRequest extends Request implements HasBody
 {

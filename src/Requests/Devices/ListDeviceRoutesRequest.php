@@ -13,7 +13,7 @@ use Saloon\Http\Request;
  * Retrieve the list of subnet routes that a device is advertising, as well as those that are enabled for it.
  *
  * @see https://tailscale.com/api#tag/devices/GET/device/%7BdeviceId%7D/routes  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class ListDeviceRoutesRequest extends Request
 {

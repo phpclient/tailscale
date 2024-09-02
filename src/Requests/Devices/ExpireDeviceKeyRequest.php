@@ -15,7 +15,7 @@ use Saloon\Http\Request;
  * The device must belong to the requesting user's tailnet.
  *
  * @see https://tailscale.com/api#tag/devices/POST/device/%7BdeviceId%7D/expire  Documentation
- * @version Relevant for 2023-09-01, API v2, OAS 3.1.0
+ * @version Relevant for 2024-09-01, API v2, OAS 3.1.0
  */
 final class ExpireDeviceKeyRequest extends Request
 {
