@@ -21,8 +21,7 @@ final class Tailscale extends Connector
      */
     public function __construct(
         private readonly string $token,
-    )
-    {
+    ) {
         $this->api = new Api(connector: $this);
     }
 
