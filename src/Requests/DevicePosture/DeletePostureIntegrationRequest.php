@@ -18,12 +18,11 @@ final class DeletePostureIntegrationRequest extends Request
     protected Method $method = Method::DELETE;
 
     /**
-     * @param string $id Unique identifier for a posture integration.
+     * @param  string  $id  Unique identifier for a posture integration.
      */
     public function __construct(
         private readonly string $id,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

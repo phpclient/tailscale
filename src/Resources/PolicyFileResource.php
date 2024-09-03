@@ -26,16 +26,16 @@ final class PolicyFileResource extends BaseResource
      * Retrieves the current policy file for the given tailnet; this includes the ACL along with the rules and tests
      * that have been defined.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param bool|null $details Request a detailed description of the tailnet policy file.
+     * @param  bool|null  $details  Request a detailed description of the tailnet policy file.
      *
-     * @param AcceptHeader $acceptHeader Response is encoded as JSON or as HuJSON.
+     * @param  AcceptHeader  $acceptHeader  Response is encoded as JSON or as HuJSON.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -61,16 +61,16 @@ final class PolicyFileResource extends BaseResource
      *
      * Sets the ACL for the given tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array $data Data for json body
+     * @param  array  $data  Data for json body
      *
-     * @param string|null $ifMatchEtag This is a safety mechanism to avoid overwriting other users' updates to
+     * @param  string|null  $ifMatchEtag  This is a safety mechanism to avoid overwriting other users' updates to
      * the tailnet policy file.
      *
      * Set the If-Match value to that of the ETag header returned in a GET request to /api/v2/tailnet/{tailnet}/acl.
@@ -80,7 +80,7 @@ final class PolicyFileResource extends BaseResource
      * Alternately, set the If-Match value to "ts-default" to ensure that the policy file is replaced only if
      * the current policy file is still the untouched default created automatically for each tailnet.
      *
-     * @param AcceptHeader $acceptHeader Response is encoded as JSON or as HuJSON.
+     * @param  AcceptHeader  $acceptHeader  Response is encoded as JSON or as HuJSON.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -107,22 +107,22 @@ final class PolicyFileResource extends BaseResource
      * When given a user or IP port to match against, returns the tailnet policy rules that apply to that resource,
      * without saving the policy file to the server.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param AclPreviewTypeParameter $type Specify for which type of resource (user or IP port) matching rules are to be fetched.
+     * @param  AclPreviewTypeParameter  $type  Specify for which type of resource (user or IP port) matching rules are to be fetched.
      *
-     * @param string $previewFor The supplied policy file is queried with this parameter to determine which rules match.
+     * @param  string  $previewFor  The supplied policy file is queried with this parameter to determine which rules match.
      *
      * Values:
      * - If type is user, provide the email of a valid user with registered machines.
      * - If type is ipport, provide an IP address + port: 10.0.0.1:80.
      *
-     * @param array $data Data for json body
+     * @param  array  $data  Data for json body
      *
      * @throws FatalRequestException|RequestException
      *

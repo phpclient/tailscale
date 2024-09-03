@@ -31,14 +31,14 @@ final class DevicesResource extends BaseResource
     /**
      * Lists the devices in a tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param string|null $fields Optionally controls whether the response returns all fields or only a predefined
+     * @param  string|null  $fields  Optionally controls whether the response returns all fields or only a predefined
      * subset of fields.
      *
      * Currently, there are two supported options:
@@ -68,7 +68,7 @@ final class DevicesResource extends BaseResource
     /**
      * Retrieve the details for the specified device.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -91,7 +91,7 @@ final class DevicesResource extends BaseResource
      * Deletes the device from its tailnet. The device must belong to the requesting user's tailnet.
      * Deleting devices shared with the tailnet is not supported.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -115,7 +115,7 @@ final class DevicesResource extends BaseResource
      * This will require the device to re-authenticate in order to connect to the tailnet.
      * The device must belong to the requesting user's tailnet.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -137,7 +137,7 @@ final class DevicesResource extends BaseResource
      *
      * Retrieve the list of subnet routes that a device is advertising, as well as those that are enabled for it.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -160,12 +160,12 @@ final class DevicesResource extends BaseResource
      * Set a device's enabled subnet routes by replacing the existing list of subnet routes with the supplied parameters.
      * Advertised routes cannot be set through the API, since they must be set directly on the device.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     routes: string[],
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -188,12 +188,12 @@ final class DevicesResource extends BaseResource
      * This call marks a device as authorized or revokes its authorization for tailnets where device authorization
      * is required, according to the authorized field in the payload.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     authorized: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -219,12 +219,12 @@ final class DevicesResource extends BaseResource
      * Device name changes immediately get propogated through your tailnet, so be aware that any existing Magic DNS URLs
      * using the old name will no longer work.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     name: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -253,12 +253,12 @@ final class DevicesResource extends BaseResource
      * Consult the policy file for your tailnet in the admin console for the list of tags that have been created for
      * your tailnet.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      *  Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     tags: string[],
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -281,12 +281,12 @@ final class DevicesResource extends BaseResource
      * When a device is added to a tailnet, its key expiry is set according to the tailnet's key expiry setting.
      * If the key is not refreshed and expires, the device can no longer communicate with other devices in the tailnet.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     keyExpiryDisabled: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -313,12 +313,12 @@ final class DevicesResource extends BaseResource
      * This action will break any existing connections to this machine. You will need to reconnect to this machine using
      * the new IP address. You may also need to flush your DNS cache.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     ipv4: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -341,7 +341,7 @@ final class DevicesResource extends BaseResource
      * Retrieve all posture attributes for the specified device.
      * This returns a JSON object of all the key-value pairs of posture attributes for the device.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -367,10 +367,10 @@ final class DevicesResource extends BaseResource
      *
      * Custom device posture attributes are available for the Personal and Enterprise plans.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param string $attributeKey The name of the posture attribute to set.
+     * @param  string  $attributeKey  The name of the posture attribute to set.
      * This must be prefixed with `custom:`.
      *
      * Keys have a maximum length of 50 characters including the namespace, and can only contain letters, numbers,
@@ -384,9 +384,9 @@ final class DevicesResource extends BaseResource
      * For example, custom:myattribute cannot have a numeric value (87) for one node and a string value ("78")
      * for another node within the same tailnet.
      *
-     * @param array{
+     * @param  array{
      *     value: mixed,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * A `value` can be either a string, number or boolean.
      *
@@ -418,10 +418,10 @@ final class DevicesResource extends BaseResource
      * This is only applicable to user-managed posture attributes in the custom namespace, which is indicated
      * by prefixing the attribute key with `custom:`.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param string $attributeKey The name of the posture attribute to set.
+     * @param  string  $attributeKey  The name of the posture attribute to set.
      * This must be prefixed with `custom:`.
      *
      * Keys have a maximum length of 50 characters including the namespace, and can only contain letters, numbers,

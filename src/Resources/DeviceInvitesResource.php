@@ -23,7 +23,7 @@ final class DeviceInvitesResource extends BaseResource
     /**
      * List all share invites for a device.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @throws FatalRequestException|RequestException
@@ -43,14 +43,14 @@ final class DeviceInvitesResource extends BaseResource
     /**
      * Create new share invites for a device.
      *
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     multiUse: bool,
      *     allowExitNode: bool,
      *     email: string,
-     * } $data Data for json body
+     * }  $data  Data for json body
      *
      * @throws FatalRequestException|RequestException
      *
@@ -70,7 +70,7 @@ final class DeviceInvitesResource extends BaseResource
     /**
      * Retrieve a specific device invite.
      *
-     * @param string $deviceInviteId ID of the device invite.
+     * @param  string  $deviceInviteId  ID of the device invite.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -89,7 +89,7 @@ final class DeviceInvitesResource extends BaseResource
     /**
      * Delete a specific device invite.
      *
-     * @param string $deviceInviteId ID of the device invite.
+     * @param  string  $deviceInviteId  ID of the device invite.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -110,7 +110,7 @@ final class DeviceInvitesResource extends BaseResource
      *
      * You can only use this if the specified invite was originally created with an email specified.
      *
-     * @param string $deviceInviteId ID of the device invite.
+     * @param  string  $deviceInviteId  ID of the device invite.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -132,9 +132,9 @@ final class DeviceInvitesResource extends BaseResource
      * Note that device invites cannot be accepted using an API access token generated from an OAuth client as
      * the shared device is scoped to a user.
      *
-     * @param array{
+     * @param  array{
      *     invite: string,
-     * } $data Data for json body
+     * }  $data  Data for json body
      *
      * @throws FatalRequestException|RequestException
      *

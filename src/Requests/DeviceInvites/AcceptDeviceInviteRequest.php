@@ -25,14 +25,13 @@ final class AcceptDeviceInviteRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * @param array{
+     * @param  array{
      *     invite: string,
-     * } $data Data for json body
+     * }  $data  Data for json body
      */
     public function __construct(
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

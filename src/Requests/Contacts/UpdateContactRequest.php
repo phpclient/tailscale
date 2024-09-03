@@ -23,16 +23,16 @@ final class UpdateContactRequest extends Request implements HasBody
     protected Method $method = Method::PATCH;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param ContactType $contactType Type of contact.
+     * @param  ContactType  $contactType  Type of contact.
      *
-     * @param array{email: string} $data Data for json body.
+     * @param  array{email: string}  $data  Data for json body.
      *
      * Required body fields:
      * - email: string - The contact's email address.
@@ -41,8 +41,7 @@ final class UpdateContactRequest extends Request implements HasBody
         private readonly string $tailnet,
         private readonly ContactType $contactType,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

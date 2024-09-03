@@ -39,7 +39,6 @@ final class ListConfigurationAuditLogsRequest extends Request
      *
      * @param  string[]  $event  List of events for which to filter.
      */
-
     public function __construct(
         public readonly string $tailnet,
         public readonly string $start,

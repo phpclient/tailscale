@@ -19,14 +19,14 @@ final class ListTailnetDevicesRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param string|null $fields Optionally controls whether the response returns all fields or only a predefined
+     * @param  string|null  $fields  Optionally controls whether the response returns all fields or only a predefined
      * subset of fields.
      *
      * Currently, there are two supported options:
@@ -41,8 +41,7 @@ final class ListTailnetDevicesRequest extends Request
     public function __construct(
         private readonly string $tailnet,
         private readonly ?string $fields = null,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

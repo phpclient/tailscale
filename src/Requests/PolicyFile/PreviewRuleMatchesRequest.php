@@ -24,31 +24,30 @@ final class PreviewRuleMatchesRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param AclPreviewTypeParameter $type Specify for which type of resource (user or IP port) matching rules are
+     * @param  AclPreviewTypeParameter  $type  Specify for which type of resource (user or IP port) matching rules are
      * to be fetched.
      *
-     * @param string $previewFor The supplied policy file is queried with this parameter to determine which rules match.
+     * @param  string  $previewFor  The supplied policy file is queried with this parameter to determine which rules match.
      *
      * Values:
      * - If type is user, provide the email of a valid user with registered machines.
      * - If type is ipport, provide an IP address + port: 10.0.0.1:80.
      *
-     * @param array $data Data for json body
+     * @param  array  $data  Data for json body
      */
     public function __construct(
         private readonly string $tailnet,
         private readonly AclPreviewTypeParameter $type,
         private readonly string $previewFor,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

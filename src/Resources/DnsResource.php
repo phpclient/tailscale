@@ -28,7 +28,7 @@ final class DnsResource extends BaseResource
      *
      * Lists the global DNS nameservers for a tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
@@ -58,16 +58,16 @@ final class DnsResource extends BaseResource
      * MagicDNS). If all nameservers have been removed, MagicDNS will be automatically disabled (until explicitly turned back
      * on by the user).
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array{
+     * @param  array{
      *     dns: string[],
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * DNS nameservers.
      *
@@ -91,7 +91,7 @@ final class DnsResource extends BaseResource
      *
      * Retrieves the DNS preferences that are currently set for the given tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
@@ -123,7 +123,7 @@ final class DnsResource extends BaseResource
      * Note that removing all nameservers will turn off MagicDNS. To reenable it, nameservers must be added back,
      * and MagicDNS must be explicitly turned on.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make
@@ -131,9 +131,9 @@ final class DnsResource extends BaseResource
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array{
+     * @param  array{
      *     magicDNS: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * Whether MagicDNS is active for this tailnet.
      *
@@ -158,7 +158,7 @@ final class DnsResource extends BaseResource
      * Retrieves the list of search paths, also referred to as search domains, that is currently set for the given
      * tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make
@@ -185,16 +185,16 @@ final class DnsResource extends BaseResource
      *
      * Replaces the list of search paths for the given tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make
      * the API call. This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array{
+     * @param  array{
      *     searchPaths: string[],
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * The search domains for the given tailnet.
      *
@@ -219,7 +219,7 @@ final class DnsResource extends BaseResource
      * Retrieves the split DNS settings, which is a map from domains to lists of nameservers, that is currently set
      * for the given tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
@@ -246,14 +246,14 @@ final class DnsResource extends BaseResource
      * Performs partial update of the split DNS settings for the given tailnet. Only domains specified in the
      * request map will be modified. Setting the value of a mapping to `null` clears the nameservers for that domain.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array<string, string[]|null> $data Data for json body.
+     * @param  array<string, string[]|null>  $data  Data for json body.
      *
      * Map of domain names to lists of nameservers or to null.
      *
@@ -278,14 +278,14 @@ final class DnsResource extends BaseResource
      * Replaces the split DNS settings for a given tailnet. Setting the value of a mapping to null clears
      * the nameservers for that domain. Sending an empty object clears nameservers for all domains.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array<string, string[]|null> $data Data for json body.
+     * @param  array<string, string[]|null>  $data  Data for json body.
      *
      * Map of domain names to lists of nameservers or to null.
      *

@@ -17,7 +17,7 @@ final class Tailscale extends Connector
     public Api $api;
 
     /**
-     * @param string $token API access token
+     * @param  string  $token  API access token
      */
     public function __construct(
         private readonly string $token,

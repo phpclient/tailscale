@@ -26,16 +26,16 @@ final class SetPolicyFileRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array $data Data for json body
+     * @param  array  $data  Data for json body
      *
-     * @param string|null $ifMatchEtag This is a safety mechanism to avoid overwriting other users' updates to
+     * @param  string|null  $ifMatchEtag  This is a safety mechanism to avoid overwriting other users' updates to
      * the tailnet policy file.
      *
      * Set the If-Match value to that of the ETag header returned in a GET request to /api/v2/tailnet/{tailnet}/acl.
@@ -45,15 +45,14 @@ final class SetPolicyFileRequest extends Request implements HasBody
      * Alternately, set the If-Match value to "ts-default" to ensure that the policy file is replaced only if
      * the current policy file is still the untouched default created automatically for each tailnet.
      *
-     * @param AcceptHeader $acceptHeader Response is encoded as JSON or as HuJSON.
+     * @param  AcceptHeader  $acceptHeader  Response is encoded as JSON or as HuJSON.
      */
     public function __construct(
         private readonly string $tailnet,
         private readonly array $data,
         private readonly ?string $ifMatchEtag = null,
         private readonly AcceptHeader $acceptHeader = AcceptHeader::JSON,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

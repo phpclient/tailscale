@@ -21,7 +21,7 @@ final class GetSplitDnsRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
@@ -30,8 +30,7 @@ final class GetSplitDnsRequest extends Request
      */
     public function __construct(
         private readonly string $tailnet,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

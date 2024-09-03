@@ -28,10 +28,10 @@ final class SetCustomDevicePostureAttributeRequest extends Request implements Ha
     protected Method $method = Method::POST;
 
     /**
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param string $attributeKey The name of the posture attribute to set.
+     * @param  string  $attributeKey  The name of the posture attribute to set.
      * This must be prefixed with `custom:`.
      *
      * Keys have a maximum length of 50 characters including the namespace, and can only contain letters, numbers,
@@ -45,9 +45,9 @@ final class SetCustomDevicePostureAttributeRequest extends Request implements Ha
      * For example, custom:myattribute cannot have a numeric value (87) for one node and a string value ("78")
      * for another node within the same tailnet.
      *
-     * @param array{
+     * @param  array{
      *     value: mixed,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * A `value` can be either a string, number or boolean.
      *
@@ -60,8 +60,7 @@ final class SetCustomDevicePostureAttributeRequest extends Request implements Ha
         private readonly string $deviceId,
         private readonly string $attributeKey,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

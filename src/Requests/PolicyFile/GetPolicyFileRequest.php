@@ -24,23 +24,22 @@ final class GetPolicyFileRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param bool|null $details Request a detailed description of the tailnet policy file.
+     * @param  bool|null  $details  Request a detailed description of the tailnet policy file.
      *
-     * @param AcceptHeader $acceptHeader Response is encoded as JSON or as HuJSON.
+     * @param  AcceptHeader  $acceptHeader  Response is encoded as JSON or as HuJSON.
      */
     public function __construct(
         private readonly string $tailnet,
         private readonly ?bool $details = null,
         private readonly AcceptHeader $acceptHeader = AcceptHeader::JSON,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

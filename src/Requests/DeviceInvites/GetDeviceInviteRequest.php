@@ -18,12 +18,11 @@ final class GetDeviceInviteRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @param string $deviceInviteId ID of the device invite.
+     * @param  string  $deviceInviteId  ID of the device invite.
      */
     public function __construct(
         private readonly string $deviceInviteId,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

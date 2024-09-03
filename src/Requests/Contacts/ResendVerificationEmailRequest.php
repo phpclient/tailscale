@@ -19,20 +19,19 @@ final class ResendVerificationEmailRequest extends Request
     protected Method $method = Method::POST;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param ContactType $contactType Type of contact.
+     * @param  ContactType  $contactType  Type of contact.
      */
     public function __construct(
         private readonly string $tailnet,
         private readonly ContactType $contactType,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

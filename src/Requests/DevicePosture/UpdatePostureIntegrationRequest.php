@@ -24,20 +24,19 @@ final class UpdatePostureIntegrationRequest extends Request implements HasBody
     protected Method $method = Method::PATCH;
 
     /**
-     * @param string $id Unique identifier for a posture integration.
+     * @param  string  $id  Unique identifier for a posture integration.
      *
-     * @param array{
+     * @param  array{
      *     cloudId: string,
      *     clientId: string,
      *     tenantId: string,
      *     clientSecre?: string,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      */
     public function __construct(
         private readonly string $id,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

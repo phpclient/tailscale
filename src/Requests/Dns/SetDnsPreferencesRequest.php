@@ -30,7 +30,7 @@ final class SetDnsPreferencesRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make
@@ -38,17 +38,16 @@ final class SetDnsPreferencesRequest extends Request implements HasBody
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array{
+     * @param  array{
      *     magicDNS: bool,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * Whether MagicDNS is active for this tailnet.
      */
     public function __construct(
         private readonly string $tailnet,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

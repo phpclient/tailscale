@@ -22,7 +22,7 @@ final class DevicePostureResource extends BaseResource
     /**
      * List all the posture integrations for a tailnet.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
@@ -48,20 +48,20 @@ final class DevicePostureResource extends BaseResource
      *
      * Must include provider and clientSecret.
      *
-     * @param string $tailnet The tailnet organization name.
+     * @param  string  $tailnet  The tailnet organization name.
      *
      * When specifying a tailnet in the API, you can:
      * - Provide a dash (-) to reference the default tailnet of the access token being used to make the API call.
      * This is the best option for most users.
      * - Provide the organization name found on the General Settings page of the Tailscale admin console.
      *
-     * @param array{
+     * @param  array{
      *     provider: string,
      *     cloudId: string,
      *     clientId: string,
      *     tenantId: string,
      *     clientSecret: string,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -81,7 +81,7 @@ final class DevicePostureResource extends BaseResource
     /**
      * Get a posture integration.
      *
-     * @param string $id Unique identifier for a posture integration.
+     * @param  string  $id  Unique identifier for a posture integration.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -102,14 +102,14 @@ final class DevicePostureResource extends BaseResource
      *
      * You may omit the clientSecret from your request to retain the previously configured clientSecret.
      *
-     * @param string $id Unique identifier for a posture integration.
+     * @param  string  $id  Unique identifier for a posture integration.
      *
-     * @param array{
+     * @param  array{
      *     cloudId: string,
      *     clientId: string,
      *     tenantId: string,
      *     clientSecre?: string,
-     * } $data Data for json body.
+     * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
      *
@@ -129,7 +129,7 @@ final class DevicePostureResource extends BaseResource
     /**
      * Delete a specific posture integration.
      *
-     * @param string $id Unique identifier for a posture integration.
+     * @param  string  $id  Unique identifier for a posture integration.
      *
      * @throws FatalRequestException|RequestException
      *

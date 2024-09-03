@@ -22,13 +22,12 @@ final class ExpireDeviceKeyRequest extends Request
     protected Method $method = Method::POST;
 
     /**
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      */
     public function __construct(
         private readonly string $deviceId,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

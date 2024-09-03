@@ -22,20 +22,19 @@ final class CreateDeviceInvitesRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * @param string $deviceId ID of the device.
+     * @param  string  $deviceId  ID of the device.
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
-     * @param array{
+     * @param  array{
      *     multiUse: bool,
      *     allowExitNode: bool,
      *     email: string,
-     * } $data Data for json body
+     * }  $data  Data for json body
      */
     public function __construct(
         private readonly string $deviceId,
         private readonly array $data,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

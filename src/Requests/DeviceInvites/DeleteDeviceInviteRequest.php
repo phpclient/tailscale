@@ -18,12 +18,11 @@ final class DeleteDeviceInviteRequest extends Request
     protected Method $method = Method::DELETE;
 
     /**
-     * @param string $deviceInviteId ID of the device invite.
+     * @param  string  $deviceInviteId  ID of the device invite.
      */
     public function __construct(
         private readonly string $deviceInviteId,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {
