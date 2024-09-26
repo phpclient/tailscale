@@ -317,7 +317,7 @@ final class DevicesResource extends BaseResource
      * Using the device's nodeId is preferred, but its numeric id value can also be used.
      *
      * @param  array{
-     *     ipv4: bool,
+     *     ipv4: string,
      * }  $data  Data for json body.
      *
      * @throws FatalRequestException|RequestException
