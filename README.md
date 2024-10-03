@@ -2,7 +2,6 @@
 
 ## Development is suspended.
 
-Development of the Tailscale API Client is temporarily suspended due to the service being unavailable since October
-2024 .
+Development of the Tailscale API Client is temporarily suspended due to the service being unavailable.
 
-We will continue development if the service becomes available again.
+([Tailscale ToS #13](https://tailscale.com/terms))
